@@ -38,7 +38,9 @@ $(function() {
 	});
 });
 $(document).mousemove(function(e) {
-	$('#info-box').css('top',e.pageY-$('#info-box').height()-30);
+	var y = Math.max(e.pageY-$('#info-box').height()-30, 0);
+	//console.log('Y is:' + y == 0 ? e.pageY+$('#info-box').height()-30 : y);
+	$('#info-box').css('top', y == 0 ? e.pageY + 30 : y);
 	$('#info-box').css('left',e.pageX-($('#info-box').width())/2);
 }).mouseover();
 </script>
